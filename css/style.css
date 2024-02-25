@@ -108,71 +108,68 @@ textarea {
   background-color: #ccc;
 }
 
-.overlay{
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.85);
-  cursor: pointer;
-}
-
-.center{
+.image-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  justify-content: space-around; /* This will add some space between the images */
 }
 
-.banner {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 15vh;
-  background-color: #333;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 2vh 0;
+.image-row img {
+  width: 12.5%; /* This will make each image take up 1/8th (or 12.5%) of the row's width */
+  height: auto; /* This will maintain the aspect ratio of the images */
 }
 
-.banner button {
-  background-color: #4CAF50;
-  width: 15vw;
-  border: none;
-  color: white;
-  padding: 1vh 2vw;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 3vw;
-  margin: 4px 2px;
-  border-radius: 1vw;
-  cursor: pointer;
-}
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 
-.banner button:first-child{
-  margin-left: 2vw;
-  font-size: 1.5vw;
-}
+  .banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 15vh;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 0;
+  }
 
-.banner button:last-child{
-  margin-right: 2vw;
-  font-size: 1.5vw;
-}
+  .banner button {
+    background-color: #4CAF50;
+    width: 15vw;
+    border: none;
+    color: white;
+    padding: 1vh 2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3vw;
+    margin: 4px 2px;
+    border-radius: 1vw;
+    cursor: pointer;
+  }
 
-.banner button:hover{
-  background-color: #2d4b2d;
-}
+  .banner button:first-child{
+    margin-left: 2vw;
+    font-size: 1.5vw;
+  }
+
+  .banner button:last-child{
+    margin-right: 2vw;
+    font-size: 1.5vw;
+  }
+
+  .banner button:hover{
+    background-color: #2d4b2d;
+  }
 
 
 
