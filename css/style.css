@@ -85,11 +85,11 @@ textarea {
    ========================================================================== */
 
 
-.main_menu{
+.menu{
   text-align: center;
 }
 
-.main_menu a {
+.menu a {
   background-color: #4CAF50;
   width: 25vw;
   border: none;
@@ -104,7 +104,7 @@ textarea {
   cursor: pointer;
 }
 
-.main_menu a:hover {
+.menu a:hover {
   background-color: #ccc;
 }
 

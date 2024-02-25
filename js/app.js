@@ -116,7 +116,7 @@ let time = 0;
 let intervalId = null;
 
 //gameplay variables
-let levelStart = false;
+//let levelStart = false;
 let levelSel = 0;
 let guessIndex = 0;
 
@@ -142,32 +142,72 @@ function timer (){
     }
 }
 
+
+function setGameType(type){
+    switch (type){
+        case 1000:
+            sessionStorage.setItem("gameType", 'c');
+            console.log('c');
+            window.location.href='game.html';
+            break;
+        case 5:
+            sessionStorage.setItem("gameType", '1');
+            console.log('1');
+            window.location.href='game.html';
+            break;
+        case 10:
+            sessionStorage.setItem("gameType", '0');
+            console.log('0');
+            window.location.href='game.html';
+            break;
+        
+    }
+}
+
+
 function randSelection(length){
     return randomValue = Math.floor(Math.random() * length);
 }
 
 function roundStart(){
+
+    let gameType = sessionStorage.getItem("gameType");
+    console.log(gameType);
+
+    switch (gameType){
+
+        case 'c':
+            levelSel = randSelection(strat_vals.length);
+
+            let lvlName = strat_vals[levelSel].name;
+            let lvlCombo = strat_vals[levelSel].combo;
+            let lvlLen = strat_vals[levelSel].combo.length;
+
+            console.log(gameType+", "+lvlName+", "+lvlCombo+", "+lvlLen);
+            
+            document.getElementById('name').textContent = lvlName;
+            
+            let cont = document.getElementById('imgContainer');
+            cont.innerHTML = '';
+            for(var i=0; i<lvlLen;i++){
+                let img = document.createElement('img');
+                img.src = 'img\\' + lvlCombo[i] + '_gray.png';
+                cont.appendChild(img);
+            }
+            break;
+
+
+
+
+    }
+
+
+
+
+
+
     
-    levelSel = randSelection(strat_vals.length);
-
-    let lvlName = strat_vals[levelSel].name;
-    let lvlCombo = strat_vals[levelSel].combo;
-    let lvlLen = strat_vals[levelSel].combo.length;
-
-    //beginning round timer
-    if (!GAME_STATE){
-        timer();
-    }
-
-    document.getElementById('name').textContent = lvlName;
-
-    let cont = document.getElementById('imgContainer');
-    cont.innerHTML = '';
-    for(var i=0; i<lvlLen;i++){
-        let img = document.createElement('img');
-        img.src = 'img\\' + lvlCombo[i] + '_gray.png';
-        cont.appendChild(img);
-    }
+    
 }
 
 function gameEnd(){
@@ -217,9 +257,9 @@ function guess(input){
 window.addEventListener('keydown', function(e){
 
     if (e.code === 'Space'){
-        console.log('space pressed');
-        if (!levelStart){
-            levelStart = true;
+        //console.log('space pressed');
+        if (!GAME_STATE){
+            GAME_STATE = true;
             roundStart();
         }else{
             timer();
