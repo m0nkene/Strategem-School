@@ -108,7 +108,8 @@ const strat_vals = [
 
 
 //timer state starts as 0 to indicate it is not started
-let TIMER_STATE = false;
+// let TIMER_STATE = false;
+let GAME_STATE = false;
 
 //timer vars
 let time = 0;
@@ -126,15 +127,16 @@ let guessIndex = 0;
 function timer (){
 
     //start if not
-    console.log(TIMER_STATE);  
-    if (!TIMER_STATE){
-        TIMER_STATE = true; 
+    console.log(GAME_STATE);  
+    if (!GAME_STATE){
+        GAME_STATE = true; 
         intervalId = setInterval(function() {
             time++;
-            document.getElementById('timer').textContent = time;
+            var seconds = (time / 100).toFixed(2);
+            document.getElementById('timer').textContent = seconds;
         }, 10);
     }else{
-        TIMER_STATE = false;
+        GAME_STATE = false;
         clearInterval(intervalId);
         intervalId = null;
     }
@@ -144,7 +146,7 @@ function randSelection(length){
     return randomValue = Math.floor(Math.random() * length);
 }
 
-function gameStart(){
+function roundStart(){
     
     levelSel = randSelection(strat_vals.length);
 
@@ -153,8 +155,10 @@ function gameStart(){
     let lvlLen = strat_vals[levelSel].combo.length;
 
     //beginning round timer
-    timer();
-    
+    if (!GAME_STATE){
+        timer();
+    }
+
     document.getElementById('name').textContent = lvlName;
 
     let cont = document.getElementById('imgContainer');
@@ -195,7 +199,8 @@ function guess(input){
         guessIndex++;
 
         if (guessIndex == lvlLen){
-            gameStart();
+            guessIndex = 0;
+            roundStart();
         }
 
     }else{
@@ -215,7 +220,7 @@ window.addEventListener('keydown', function(e){
         console.log('space pressed');
         if (!levelStart){
             levelStart = true;
-            gameStart();
+            roundStart();
         }else{
             timer();
         }
