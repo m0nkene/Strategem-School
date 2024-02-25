@@ -130,7 +130,7 @@ function timer (){
 
     //start if not
     //console.log(GAME_STATE);  
-    if (!GAME_STATE){
+    if (GAME_STATE){
         GAME_STATE = true; 
         intervalId = setInterval(function() {
             time++;
@@ -199,6 +199,7 @@ function roundStart(){
 
 function gameEnd(){
     GAME_STATE = false;
+    roundCnt = 0;
     timer();
 }
 
@@ -222,8 +223,30 @@ async function guess(input){
         img.src = 'img\\' + lvlCombo[guessIndex] + '_green.png';
         guessIndex++;
 
-        //determining if the final input
-        if (guessIndex == lvlLen){
+        switch (sessionStorage.getItem("gameType")){
+            case 'c':
+                console.log('cont');
+                var roundCount =  1000;
+                break;
+            case '5':
+                console.log('5');
+                var roundCount = 5;
+                break;
+            case '1':
+                console.log('10');
+                var roundCount = 10;
+                break;
+        }
+
+        //determining if the final round of game
+        if (guessIndex == lvlLen && roundCnt == roundCount - 1){
+            guessIndex = 0;
+            roundCnt++;
+
+            //document.getElementById("progNotif").value = 
+            gameEnd();
+        }
+        else if (guessIndex == lvlLen){
             guessIndex = 0;
             roundCnt++;
 
