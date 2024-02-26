@@ -84,12 +84,18 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#back {
+  background-image: url('img/backvig.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 
-.main_menu{
+.menu{
   text-align: center;
 }
 
-.main_menu a {
+.menu a {
   background-color: #4CAF50;
   width: 25vw;
   border: none;
@@ -104,21 +110,18 @@ textarea {
   cursor: pointer;
 }
 
-.main_menu a:hover {
+.menu a:hover {
   background-color: #ccc;
 }
 
-.overlay{
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.85);
-  cursor: pointer;
+.image-row {
+  display: flex;
+  justify-content: space-around; /* This will add some space between the images */
+}
+
+.image-row img {
+  width: 12.5%; /* This will make each image take up 1/8th (or 12.5%) of the row's width */
+  height: auto; /* This will maintain the aspect ratio of the images */
 }
 
 .center{
@@ -136,7 +139,7 @@ textarea {
 .banner {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   height: 15vh;
   background-color: #333;
   color: white;
@@ -172,6 +175,22 @@ textarea {
 
 .banner button:hover{
   background-color: #2d4b2d;
+}
+
+#name{
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 10vh;
+}
+
+#pauseNotif{
+  font-family: 'Courier New', monospace;
+  font-size: 2.5vh;
+  position: absolute;
+  bottom: 20vh; 
+  left: 50%; 
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 
