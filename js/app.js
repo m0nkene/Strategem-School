@@ -95,20 +95,80 @@ const strat_vals = [
     },{
         name: 'Tesla Tower',
         combo: ['s','w','d','w','a','d']
+    },{
+        name: 'Anti-Personnel Minefield',
+        combo: ['s','a','s','w','d']
+    },{
+        name: 'Supply Pack',
+        combo: ['s','a','s','w','w','s']
+    },{
+        name: 'Grenade Launcher',
+        combo: ['s','a','w','a','s','s']
+    },{
+        name: 'Laser Cannon',
+        combo: ['s','a','s','w','a']
+    },{
+        name: 'Incendiary Mines',
+        combo: ['s','a','a','s']
+    },{
+        name: '“Guard Dog” Rover',
+        combo: ['s','w','a','w','d','d']
+    },{
+        name: 'Ballistic Shield Backpack',
+        combo: ['s','a','s','s','w','a']
+    },{
+        name: 'Arc Thrower',
+        combo: ['s','d','s','w','a','a']
+    },{
+        name: 'Shield Generator Pack',
+        combo: ['s','w','a','d','a','d']
+    },{
+        name: 'Machine Gun Sentry',
+        combo: ['s','w','d','d','w']
+    },{
+        name: 'Gatling Sentry',
+        combo: ['s','w','d','a']
+    },{
+        name: 'Mortar Sentry',
+        combo: ['s','w','d','d','s']
+    },{
+        name: '“Guard Dog”',
+        combo: ['s','w','a','w','d','s']
+    },{
+        name: 'Autocannon Sentry',
+        combo: ['s','w','d','w','a','w']
+    },{
+        name: 'Rocket Sentry',
+        combo: ['s','w','d','d','a']
+    },{
+        name: 'EMS Mortar Sentry',
+        combo: ['s','w','d','s','d']
+    },{
+        name: 'SOS Beacon',
+        combo: ['w','s','d','w']
+    },{
+        name: 'Reinforce',
+        combo: ['w','s','d','a','w']
+    },{
+        name: 'Upload Data',
+        combo: ['d','a','w','w','w']
+    },{
+        name: 'Hellbomb',
+        combo: ['s','w','a','s','w','d','s','w']
+    },{
+        name: 'Resupply',
+        combo: ['s','s','w','d']
+    },{
+        name: 'SEAF Artillery',
+        combo: ['s','w','w','a']
+    },{
+        name: 'Global Illumination Flare',
+        combo: ['d','d','a','a']
     }
 ];
 
 
-
-
-
-
-
-
-
-
-//timer state starts as 0 to indicate it is not started
-// let TIMER_STATE = false;
+//timer state starts as false to indicate it is not started
 let GAME_STATE = false;
 
 //timer vars
